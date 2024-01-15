@@ -1,0 +1,50 @@
+import random
+
+def print_board(board):
+    for row in board:
+        print(row)
+
+def generate_empty_board():
+    return [[0]*9 for _ in range(9)]
+
+def start_game():
+    board = generate_empty_board()
+    print_board(board)
+    return board
+
+def get_valid_moves(board, row, col):
+    valid_numbers = set(range(1, 10))
+    for x in range(9):
+        valid_numbers.discard(board[row][x])
+        valid_numbers.discard(board[x][col])
+    start_row, start_col = row - row % 3, col - col % 3
+    for i in range(3):
+        for j in range(3):
+            valid_numbers.discard(board[i + start_row][j + start_col])
+    return list(valid_numbers)
+
+def user_input(board):
+    while True:
+        try:
+            row = int(input("Enter row (1-9): ")) - 1
+            col = int(input("Enter column (1-9): ")) - 1
+            if row < 0 or row >= 9 or col < 0 or col >= 9:
+                print("Invalid row or column. Please try again.")
+                continue
+            valid_moves = get_valid_moves(board, row, col)
+            if len(valid_moves) == 0:
+                print("Invalid move. Please try again.")
+                continue
+            num = int(input("Enter number to place (1-9): "))
+            if num not in valid_moves:
+                print("Invalid number. Please try again.")
+                continue
+            board[row][col] = num
+            print_board(board)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+if __name__ == "__main__":
+    game_board = start_game()
+    user_input(game_board)
