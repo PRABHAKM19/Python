@@ -1,0 +1,83 @@
+import random
+
+# Define the game board as a 2D list
+board = [[' ' for _ in range(3)] for _ in range(3)]
+
+# Define a function to draw the game board on the console
+def draw_board():
+    for row in board:
+        print('|'.join(row))
+        print('-----')
+
+# Define a function to get the player's move
+def get_move():
+    while True:
+        row = int(input('Enter row (1-3): ')) - 1
+        col = int(input('Enter col (1-3): ')) - 1
+        if board[row][col] == ' ':
+            board[row][col] = current_player
+            return row, col
+        else:
+            print('Invalid move. Try again.')
+
+# Define a function to check if the move is valid
+def is_valid_move(row, col):
+    return board[row][col] == ' '
+
+# Define a function to check if there is a winner or a tie
+def is_game_over():
+    # Check rows and columns
+    for row in board:
+        if row[0] == row[1] == row[2] != ' ':
+            return True
+    for col in range(3):
+        if board[0][col] == board[1][col] == board[2][col] != ' ':
+            return True
+    # Check diagonals
+    if board[0][0] == board[1][1] == board[2][2] != ' ':
+        return True
+    if board[0][2] == board[1][1] == board[2][0] != ' ':
+        return True
+    # Check for tie
+    if ' ' not in ''.join(board[0]) and ' ' not in ''.join(board[1]) and ' ' not in ''.join(board[2]):
+        return True
+    return False
+
+# Define a function to play the game
+def play_game():
+    global current_player
+    current_player = random.choice(['X', 'O'])
+    while True:
+        draw_board()
+        if is_game_over():
+            if is_winner():
+                print(f'Player {current_player} wins!')
+            else:
+                print('It\'s a tie!')
+            break
+        row, col = get_move()
+        if not is_valid_move(row, col):
+            print('Invalid move. Try again.')
+            continue
+        if is_winner():
+            print(f'Player {current_player} wins!')
+            break
+
+# Define a function to check if there is a winner
+def is_winner():
+    # Check rows and columns
+    for row in board:
+        if row[0] == row[1] == row[2] != ' ':
+            return True
+    for col in range(3):
+        if board[0][col] == board[1][col] == board[2][col] != ' ':
+            return True
+    # Check diagonals
+    if board[0][0] == board[1][1] == board[2][2] != ' ':
+        return True
+    if board[0][2] == board[1][1] == board[2][0] != ' ':
+        return True
+    return False
+
+# Play the game
+play_game()
