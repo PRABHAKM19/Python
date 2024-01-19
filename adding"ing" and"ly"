@@ -1,0 +1,8 @@
+str="abcingk"
+finding=str.find("ing")
+if len(str)<=2:
+    print(str)
+elif len(str)>=3 and finding==len(str)-3:
+    print(str+"ly")
+else:
+    print(str+"ly")
