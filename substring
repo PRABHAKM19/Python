@@ -1,0 +1,8 @@
+int=input()
+ss1=input()
+ss2=input()
+start=int.find(ss1)
+end=int.find(ss2)
+if start!=-1 and end!=-1:
+    result=int[start+len(ss1)+1:end]
+    print(result)
