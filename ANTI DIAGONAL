@@ -1,0 +1,6 @@
+l1=[1,2,0]
+l2=[3,4,5]
+list=[l1]+[l2]
+for i in list:
+    for j in i:
+        print(j,end=" ")
