@@ -1,0 +1,4 @@
+str="prabha"
+
+print(str[2:]+str[0:2])#for left rotation
+print(str[-2:]+str[:-2])#for right rotation
