@@ -1,0 +1,4 @@
+s="aa,feg,rtg.reg.grreg,drg."
+for i in s:
+    s=i.replace(",",".")
+    print(s,end=" ")
