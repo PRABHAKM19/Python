@@ -1,0 +1,12 @@
+import random
+l = ['sis','pap','rock']
+com = random.randint(0,2)
+me = input("Enter a string:")
+if l[com] == 'sis' and me == 'pap':
+    print("com won")
+elif l[com] == 'sis' and me == 'rock':
+    print("you won")
+elif l[com] == 'rock' and me == 'pap':
+    print("you won")
+else:
+     print("draw")
