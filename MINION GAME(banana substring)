@@ -1,0 +1,14 @@
+string='BANANA'
+v='AEIOUaeiou'
+s=len(string)
+stu=0
+kev=0
+for i in range(s):
+    if string[i] in v:
+        kev+= (s - i)
+    else:
+        stu+= (s-i)
+if kev> stu:
+    print("kevin:",kev)
+else:
+    print("stuart:",stu)
