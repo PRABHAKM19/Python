@@ -1,0 +1,18 @@
+def play_round():
+    p1 = random.randint(0, 9999)  # Generate a random 4-digit number
+    p2 = int(input("Enter a 4-digit number: "))
+    cows = 0
+    bulls = 0
+    while len(str(p2)) != 4:
+        print("Invalid input.")
+        p2 = int(input("Please enter a 4-digit number: "))
+    for i in range(len(str(p2))):
+        if str(p1)[i] == str(p2)[i]:
+            cows += 1
+        elif str(p1)[i] in str(p2):
+            bulls += 1
+    print(f"Cows: {cows}")
+    print(f"Bulls: {bulls}")
+
+for i in range(9):
+    play_round()
