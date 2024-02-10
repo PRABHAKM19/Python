@@ -1,0 +1,38 @@
+class ATM:
+    min_bal = 1000
+    deposit = 0
+    pin=1234
+    cust_accno = 123456789
+    print("Hello", cust_accno , "!")
+
+    n=int(input("Enter the 4-digit pin:"))
+    if pin == n:
+        print("Access Granted! Choose necessary")
+        print(" 1-deposition\n 2-Withdrawal\n 3-Mini Statement\n 4-Check Balance\n 5-Bank Enquiry")
+    if pin!=n:
+        print("Invalid pin!")
+        n=int(input("Enter a valid pin:"))
+        if n == pin:
+            print("Access Granted! Choose necessary")
+            print(" 1-deposition\n 2-Withdrawal\n 3-Mini Statement\n 4-Check Balance\n 5-Bank Enquiry")
+        else:
+            print("Invalid Pin! Enter Again:")
+            if n == pin:
+                print("Access Granted! Choose necessary")
+                print(" 1-deposition\n 2-Withdrawal\n 3-Mini Statement\n 4-Check Balance\n 5-Bank Enquiry")
+
+    m=int(input())
+    if m == 1:
+        print("Deposition :0 \n"
+              "avalilabe balance :",min_bal)
+    elif m == 2:
+        k=int(input("Enter the Amount:"))
+        print(k,"\nAmount was debited successfully!")
+        print("updated balance is:",min_bal-k)
+
+    elif m == 3:
+        print("Mini-statement for the account",cust_accno,"is :" ,min_bal)
+    elif m == 4:
+        print("Your Available balance is:",min_bal)
+    elif m == 5:
+        print("Available balance:",min_bal,"\nyou are allowed to make for transcation rs:",min_bal)
