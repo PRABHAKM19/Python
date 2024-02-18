@@ -1,0 +1,87 @@
+class node:
+    def _init_(self, data):
+        self.data = data
+        self.next = None
+
+class linkedlist:
+    def _init_(self):
+        self.head = None
+
+    def createlist(self):
+        n = int(input("Enter the no of element: "))
+        for i in range(n):
+            m = int(input("Enter the number:"))
+            self.insertend(m)    
+
+    def insertend(self, data):
+        newnode = node(data)
+        if self.head is None:
+            self.head = newnode
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = newnode      #  to add the newnode at end by giving temp.next as the var to the instance newnode
+
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" ")
+            temp = temp.next
+
+    def insertfirst(self, data):
+        newnode = node(data)
+        newnode.next = self.head
+        self.head = newnode
+
+    def insertmid(self, data, pos):
+        if pos == 0:
+            self.insertfront(data)
+            return
+        newnode = node(data)
+        temp = self.head
+        for i in range(pos - 1):
+            if temp is None:
+                print("Positon is out of bound")
+                return
+            temp = temp.next
+        if temp is None:
+            print("positon is out of bound")
+            return
+        newnode.next = temp.next
+        temp.next = newnode
+
+    def count(self):
+        count = 0
+        temp = self.head
+        while temp:
+            count += 1
+            temp = temp.next
+        return count
+
+def choice():
+    n = input("enter the choice (create/insert/insertfront/insertmid/insertend/display/count/exit ): ")
+    l1 = linkedlist()
+    while n != 'exit':
+        if n == 'create':
+            l1.createlist()
+        elif n == 'insert':
+            data = int(input("Enter the number:"))
+            l1.insertend(data)
+        elif n == 'insertfront':
+            data = int(input("Enter the number:"))
+            l1.insertfirst(data)
+        elif n == 'insertmid':
+            data = int(input("Enter the number:"))
+            pos = int(input("Enter the position:"))
+            l1.insertmid(data, pos)
+        elif n == 'insertend':
+            data = int(input("Enter the number:"))
+            l1.insertend(data)
+        elif n == 'display':
+            l1.display()
+        elif n == 'count':
+            print("Count of nodes:", l1.count())
+        else:
+            print("Invalid choice")
+        n = input("enter the choice (create/insert/insertfront/insertmid/insertend/display/count/exit ): ")
