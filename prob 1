@@ -1,0 +1,5 @@
+str="AAABCCCC"
+k = 4
+for i in range(0,len(str),k):
+    n=str[i:i+k]
+    print(*list(set(n)))
