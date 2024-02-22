@@ -1,0 +1,58 @@
+class node:
+    def _init_(self,data):  
+        self.data=data
+        self.next=None
+        self.prev=None
+class dll: #doubly linked list
+    def _init_(self):
+        self.head=None
+        self.tail=None
+    def create(self,data): #data is user received : 10,20,30
+        if self.head is None:#node creation
+            self.head=node(data) 
+            self.tail=self.head
+        else:
+            newnode=node(data) #next node (20)
+            self.tail.next=newnode
+            newnode.prev=self.tail
+            self.tail=newnode
+            self.head.prev=self.tail
+            self.tail.next=self.head
+            
+    def insertbeg(self,data):
+        newnode=node(data)
+        if(self.head==None):
+            self.head=newnode
+            return
+        self.head.prev=newnode
+        newnode.next=self.head    
+        self.head=newnode
+        self.head.prev=self.tail
+        self.tail.next=self.head
+        
+    def insertafter(self,data):
+        newnode=node(data)
+        if(self.tail==None):
+            self.tail=newnode
+            return
+        self.tail.next=newnode
+        newnode.prev=self.tail    
+        self.tail=newnode
+        self.head.prev=self.tail
+        self.tail.next=self.head
+        
+    def display(self):
+        temp=self.head #temp traverses upto it reaches none (30's tail)
+        while temp.next is not self.head: #or while temp!=None
+            print(temp.data, end=" ")
+            temp=temp.next #traverse all the nodes until it reaches none
+        print(temp.data)
+obj=dll()
+n=int(input())
+for i in range(n):
+    ele=int(input())
+    obj.create(ele)
+obj.display()
+val=int(int(input()))
+obj.insertafter(val)
+obj.display()
