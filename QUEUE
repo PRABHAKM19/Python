@@ -1,0 +1,43 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class queue:
+    def __init__(self):
+        self.front=None
+        self.rear=None
+
+    def enqueue(self,data):
+        newnode =node(data)
+        if self.front is None and self.rear is None:
+            self.front=self.rear=newnode
+        else:
+            self.rear.next=newnode
+            self.rear=newnode
+
+
+    def dequeue(self):
+        if self.front and self.rear is None:
+            print("Queue is empty")
+        else:
+            print(self.rear.data)
+            self.rear=self.rear.next
+
+    def peek(self):
+        if self.front is None:
+            print("Queue is empty")
+        else:
+            print(self.front.data)
+
+    def display(self):
+        self.temp=self.front
+        while self.temp:
+            print(self.temp.data)
+            self.temp=self.temp.next
+
+ob=queue()
+n=int(input("Times: "))
+for i in range(n):
+    m=int(input("num: "))
+    ob.enqueue(m)
+ob.display()
