@@ -1,0 +1,44 @@
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class stack:
+    def __init__(self, top):
+        self.top = None
+    def push(self, data):
+        newnode = node(data)
+        newnode.next = self.top
+        self.top = newnode
+
+    def pop(self):
+        if self.top is None:
+            print("Stack is empty")
+        else:
+            temp = self.top
+            print(temp.data)
+            self.top = self.top.next
+            del temp
+
+    def peek(self):
+        if self.top is None:
+            print("Stack is empty")
+        else:
+            print(self.top.data)
+
+    def display(self):
+        temp=self.top
+        if temp is None:
+            print("Stack is Empty")
+        else:
+            while temp is not None:
+                print(temp.data)
+                temp=temp.next
+
+
+ob = stack(None)
+n = int(input("Times: "))
+for i in range(n):
+    m = int(input("num: "))
+    ob.push(m)
+ob.pop()
+ob.display()
