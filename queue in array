@@ -1,0 +1,59 @@
+max_size = 5
+front =-1
+rear=-1
+queue=[0]* max_size
+def insert():
+    global front,rear
+    if rear == max_size-1:   #rear+1%size=front -circular queue
+        print("Queue is full")
+    elif front ==-1 and rear == -1:   #(rear+1)%size=rear   -circular queue
+        front=rear=0
+        num=int(input("Enter value: "))
+        queue[rear]=num
+    else:
+        rear+=1
+        num=int(input("Enter num: "))
+        queue[rear]=num
+
+def delete():
+    global front,rear
+    if front==-1 and rear == -1:
+        print("Queue is empty")
+    elif front == rear:
+        print(queue[front])
+        front=rear=-1
+    else:
+        print(queue[front])
+        front+=1
+
+def display():
+    global front ,rear
+    if front ==-1 and rear == -1:
+        print("queue is empty")
+    else:
+        for i in range(front,rear+1):
+            print(queue[i])
+            front+=1
+        print()
+
+def peek():
+    global front,rear
+    if front==-1 and rear==-1:
+        print("Queue is empty")
+    else:
+        print(queue[front])
+
+while (True):
+    n=int(input("Enter opt: "))
+    if n==1:
+        insert()
+    elif n==2:
+        delete()
+    elif n==3:
+        peek()
+    elif n==4:
+        display()
+
+
+
+
