@@ -1,0 +1,11 @@
+def enqueue_front():
+    global front,rear
+    if rear+1 % N==front:
+        print("Queue is overflow")
+    elif front==-1 and rear==-1:
+        front=rear=0
+    elif front==0:
+        front=N-1
+    else:
+        front-=1
+        dequeue[front]=element
