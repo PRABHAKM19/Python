@@ -1,0 +1,54 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class cqll:
+    def __init__(self):
+        self.front=None
+        self.rear=None
+    def enqueue(self,data):
+        newnode=node(data)
+        if not self.front and not self.rear:
+            self.front=self.rear=newnode
+            self.rear.next=self.front
+        else:
+            self.rear.next=newnode
+            newnode=self.rear
+            newnode.next=self.front
+
+    def dequeue(self):
+        if self.rear is None and self.front is None:
+            print("Queue is empty")
+        elif self.front == self.rear:
+            print(self.front.data)
+            self.front=self.rear=None
+        else:
+            print(self.front.data)
+            self.front=self.front.next
+            self.rear.next=self.front
+
+    def peek(self):
+        if not self.front and not self.rear:
+            print("Queue is empty")
+        else:
+            print(self.front.data)
+
+    def display(self):
+        if not self.front and not self.rear:
+            print("Queue is empty")
+        else:
+            temp=self.front
+            while temp!=self.front:
+                temp=temp.next
+            print(temp.data)
+
+
+ob=cqll()
+n=int(input("Times: "))
+for i in range(n):
+    m=int(input("Nums: "))
+    ob.enqueue(m)
+ob.peek()
+ob.dequeue()
+ob.peek()
+ob.display()
