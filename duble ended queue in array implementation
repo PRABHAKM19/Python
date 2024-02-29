@@ -1,0 +1,74 @@
+front=-1
+rear=-1
+N=5
+element=[0,1,2,3,4,5]
+
+def enqueue_front():
+    global front,rear
+    if rear+1 % N ==front:
+        print("Queue is overflow")
+    elif front==-1 and rear==-1:
+        front=rear=0
+        num=int(input("VAL: "))
+        element[front]=num
+    elif front==0:
+        front=N-1
+        num=int(input("val:"))
+        front=num
+    else:
+        front-=1
+        num=int(input("val: "))
+        print(element[front])
+
+def enqueue_end():
+    global front,rear
+    if rear+1% N == front:
+        print("Queue is overflow")
+    elif front==-1 and rear==-1:
+        front=rear=0
+    elif rear==N-1:
+        rear=0
+    else:
+        rear+=1
+        print(element[rear])
+
+def dequeue_front():
+    global front,rear
+    if front==-1 and rear == -1:
+        print("Queue is empty")
+    elif front == N-1:
+        print(element[front])
+        front=rear=-1
+    else:
+        front += 1
+        print(element[front])
+
+
+def peek():
+    global front, rear
+    if front == -1 and rear == -1:
+        print("Queue is empty")
+    else:
+        print(element[front])
+
+def display():
+    global front ,rear
+    i=front
+    if front ==-1 and rear == -1:
+        print("queue is empty")
+    else:
+        while i!= rear:
+            print(element[i])
+            i=(i+1)% N
+        print(element[i])
+
+while (True):
+    n=int(input("Enter opt: "))
+    if n==1:
+        enqueue_front()
+    elif n==2:
+        dequeue_front()
+    elif n==3:
+        peek()
+    elif n==4:
+        display()
