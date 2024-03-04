@@ -1,0 +1,70 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class linkedlist:
+    def __init__(self):
+        self.head=None
+
+    def create(self):
+        n=int(input("enter the no of numbers: "))
+        for i in range(n):
+            dd=int(input("number: "))
+            newnode=node(dd)
+            self.insert(newnode)
+
+    def insert(self):
+        newnode=self.head
+        if not self.head:
+            self.head = newnode
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+
+
+    def count(self):
+        temp=self.head
+        count=0
+        while temp:
+            count+=1
+            return count
+
+    def rotation(self):
+        rot=int(input("Enter num: "))
+        # if rot == 0:
+        #     return
+        # elif rot > self.count():
+        #     return
+        # if rot==0:
+        #     return
+        # temp = self.head
+        # for i in range(self.count() - rot):
+        #     temp = temp.next
+        # newhead = temp.next
+        # temp.next = None
+        # return linkedlist(newhead)
+        curr=self.head
+        while self.count<rot and self.count!=new:
+            curr=curr.next
+            self.count+=1
+        newnode=curr.next
+        curr.next=None
+        temp.next=head
+        head=newnode
+
+
+    def display(self):
+        if self.head==None:
+            return
+        temp=self.head
+        while temp:
+            print(temp.data,end=" ")
+            temp=temp.next
+ob=linkedlist()
+ob.create()
+ob.insert(3)
+ob.display()
