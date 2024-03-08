@@ -1,0 +1,6 @@
+n=[6,30,50,29,38,12,43,39,55]
+id=[]
+for i in range(len(n)):
+    if n[i]>=30 and n[i]<=40:
+        id.append(i)
+print(*id)
