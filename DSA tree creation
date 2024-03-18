@@ -1,0 +1,66 @@
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def append(root, n):
+    if root is None:
+        return node(n)
+    else:
+        current = root
+        current1 = root
+        flag = 0
+        while True:
+            if current.left is None:
+                current.left = node(n)
+                break
+            elif current.right is None:
+                current.right = node(n)
+                break
+            elif flag == 0:
+                current = current.left
+                flag += 1
+            else:
+                current = current1.right
+                flag = 0
+                current1 = current1.left
+        return root
+
+
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.data, end=" ")
+        inorder(root.right)
+
+
+# def postorder(root):
+#     if current:
+#         postorder(current.left)
+#         postorder(current.right)
+#         print(current.data,end=" ")
+
+
+# def preorder(root):
+#     if current:
+#         print(current.data,end=" ")
+#         preorder(current.left)
+#         preorder(current.right)
+
+root = None
+m=int(input("Timex: "))
+for i in range(m):
+    n=int(input("Num: "))
+    root=append(root,n)
+
+# print("Enter num: ")
+# while True:
+#     n = int(input())
+#     if n > 0:
+#         root = append(root, n)
+#     else:
+#         break #it breaks when the entered value will be 0
+
+print("Inorder traversal:")
+inorder(root)
