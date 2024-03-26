@@ -1,0 +1,7 @@
+str=input("STR: ")
+count=0
+alp="!@#$%^&*()<>?:"
+for i in str:
+    if i  in alp:
+        count+=1
+print(count)
