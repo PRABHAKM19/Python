@@ -1,0 +1,17 @@
+q=[10,20,5]
+w=[70,50,30]
+cost=105
+m=[]
+for i in range(len(q)):
+#     for j in m:
+    exp_wage=7
+    l=q[i]*exp_wage   
+    m.append(l)
+m2=[]    
+for i in m:
+    if i<=cost:
+        m2.append(i)
+        
+
+print(len(m2) if sum(m2)<=105 else 'none')
+        
