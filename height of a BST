@@ -1,0 +1,47 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+    def create(self, val):
+        if self.root == None:
+            self.root = Node(val)
+        else:
+            temp = self.root
+
+            while True:
+                if val < temp.data:
+                    if temp.left:
+                        temp = temp.left
+                    else:
+                        temp.left = Node(val)
+                        break
+                elif val > temp.data:
+                    if temp.right:
+                        temp = temp.right
+                    else:
+                        temp.right = Node(val)
+                        break
+                else:
+                    break
+def height(root):
+    if root is None:
+        return -1
+    else:
+        return 1 + max(height(root.left), height(root.right))
+
+
+tree = BinarySearchTree()
+t = int(input("level: "))
+
+arr = list(map(int, input("nodes: ").split()))
+
+for i in range(t):
+    tree.create(arr[i])
+
+print(height(tree.root))
