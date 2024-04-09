@@ -1,0 +1,7 @@
+n=4
+p=[]
+for i in range(n):
+    m=n-1
+    n-=1
+    p.append(m)
+print(p)
