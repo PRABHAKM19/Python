@@ -1,0 +1,13 @@
+str = "cathatCatHat"
+str1 = "ctina"
+
+all_present = True
+for i in str1:
+    if i not in str:
+        all_present = False
+        break
+
+if all_present:
+    print("true")
+else:
+    print("false")
