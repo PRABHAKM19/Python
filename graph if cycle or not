@@ -1,0 +1,12 @@
+# whether undirected graph has cycle or not
+a=[]
+n=int(input("ver"))
+m=int(input("ed"))
+for i in range(n):
+    x,y=list(map(int,input().split()))
+    a.append(x)
+    a.append(y)
+if a[0]==a[-1]or a[0]==a[-2]:
+    print("True")
+else:
+    print("False")
