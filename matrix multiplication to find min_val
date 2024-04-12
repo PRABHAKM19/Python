@@ -1,0 +1,16 @@
+import sys
+arr=[5,4,6,2,7]
+n=len(arr)
+m=[[0]*n for i in range(n)]
+s=[[0]*n for i in range(n)]
+for d in range(1,n-1):
+    for i in range(1,n-d):
+        j=i+d
+        min_val=sys.maxsize
+        for k in range(i,j):
+            count=m[i][k]+m[k+1][j]+arr[i-1]*arr[k]*arr[j]
+            if count<min_val:
+                min_val=count
+                s[i][j]=k
+        m[i][j]=min_val
+print(m[i][n-1])
