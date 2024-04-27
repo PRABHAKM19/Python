@@ -1,0 +1,7 @@
+y="geeksforgeeks"
+d={}
+for i in y:
+    if i not in d.keys():
+        d[i]=0
+    d[i]+=1
+print(d)
