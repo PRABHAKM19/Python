@@ -1,0 +1,10 @@
+ed=3
+ver=3
+x=[]
+for i in range(ed):
+    a,b=map(int,input().split())
+    x.append([a,b])
+if x[0][0]==x[2][0] or x[0][1]==x[2][1]:
+    print("True")
+else:
+    print("False")
