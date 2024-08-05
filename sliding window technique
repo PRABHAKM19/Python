@@ -1,0 +1,10 @@
+l=[4,9,3,5,1,0,7]
+k=4
+if len(l)<k:
+    print("invalid input!")
+wind_sum=sum(l[:k])
+max_sum=wind_sum
+for i in range(k,len(l)):
+    wind_sum=wind_sum-l[i-k]+l[i]
+    max_sum=max(wind_sum,max_sum)
+print(max_sum)
